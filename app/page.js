@@ -12,6 +12,8 @@ const CONTACT = {
 };
 
 import ContactForm from "./ContactForm";
+import TestimonialVideo from "./TestimonialVideo";
+import TrafficLight from "./TrafficLight";
 import { Icon, ICONS } from "./icons";
 
 // ---------- Page ----------
@@ -25,11 +27,15 @@ export default function Home() {
             <span className="dot" />
             Atul's Mukta Driving Instructor
           </a>
-          <nav className="nav-links">
-            <a href="#services">Services</a>
-            <a href="#why">Why me</a>
-            <a href="#contact">Contact</a>
-          </nav>
+          <div className="nav-right">
+            <nav className="nav-links">
+              <a href="#services">Services</a>
+              <a href="#testimonial">Student story</a>
+              <a href="#why">Why me</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <TrafficLight />
+          </div>
         </div>
       </header>
 
@@ -98,6 +104,24 @@ export default function Home() {
                   confidence in real traffic conditions.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- Student testimonial ---------- */}
+        <section className="section" id="testimonial">
+          <div className="container">
+            <p className="section-label">Student story</p>
+            <h2>Hear it from a student</h2>
+            <p className="lede">
+              One of my students — a content creator — made this short video
+              about how he learned to drive with me.
+            </p>
+            <div className="video-wrap">
+              <TestimonialVideo />
+              <p className="video-caption">
+                A real student, a real learning journey — in his own words.
+              </p>
             </div>
           </div>
         </section>
