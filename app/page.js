@@ -8,6 +8,9 @@ const CONTACT = {
   phone: "+91 82082 14348",
   phoneHref: "tel:+918208214348",
   whatsapp: "https://wa.me/918208214348",
+  // The name/address Google Maps should show in the embedded preview.
+  // Replace with the exact place name or full address.
+  mapsQuery: "Atul's Mukta Driving Instructor",
   mapsUrl: "https://maps.app.goo.gl/4xDWrFf1nqAcs3tn9",
 };
 
@@ -208,12 +211,26 @@ export default function Home() {
                   WhatsApp
                 </a>
               </div>
-              <p className="address">
-                <Icon path={ICONS.pin} size={14} /> Driving school location:{" "}
-                <a href={CONTACT.mapsUrl} target="_blank" rel="noopener noreferrer">
-                  View on Google Maps
+              <div className="map-preview">
+                <iframe
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    CONTACT.mapsQuery
+                  )}&output=embed`}
+                  title="Driving school location on Google Maps"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <a
+                  className="map-link"
+                  href={CONTACT.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon path={ICONS.pin} size={16} />
+                  Open in Google Maps — get directions
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </section>

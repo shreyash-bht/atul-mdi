@@ -66,13 +66,21 @@ export default function ContactForm({ whatsapp }) {
           </option>
         ))}
       </select>
-      <input
-        type="date"
-        value={startDate}
-        min={new Date().toLocaleDateString("en-CA")} // today, so no past dates
-        onChange={(e) => setStartDate(e.target.value)}
-        aria-label="When do you want to start learning?"
-      />
+      <div className="date-wrap">
+        <input
+          type="date"
+          value={startDate}
+          min={new Date().toLocaleDateString("en-CA")} // today, so no past dates
+          onChange={(e) => setStartDate(e.target.value)}
+          aria-label="When do you want to start learning?"
+          className={startDate ? "" : "date-empty"}
+        />
+        {!startDate && (
+          <span className="date-ph" aria-hidden="true">
+            When do you want to start? (optional)
+          </span>
+        )}
+      </div>
       <select value={time} onChange={(e) => setTime(e.target.value)}>
         <option value="">Anytime works for me</option>
         {TIMES.map((t) => (

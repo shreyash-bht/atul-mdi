@@ -553,6 +553,26 @@ a {
   background: #fff;
 }
 
+/* Date field: native empty-state text ("dd/mm/yyyy") is invisible on the
+   dark card on many phones, so hide it and show our own placeholder. */
+.date-wrap {
+  position: relative;
+}
+
+.form input[type="date"].date-empty {
+  color: transparent;
+}
+
+.date-ph {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.95rem;
+  pointer-events: none; /* taps pass through to the input */
+}
+
 .form .btn-wa {
   background: #25d366;
   color: #fff;
@@ -609,16 +629,33 @@ a {
   color: var(--accent);
 }
 
-.address {
-  margin-top: 32px;
-  font-size: 0.9rem;
-  color: #a8a29e;
+.map-preview {
+  margin: 32px auto 0;
+  max-width: 640px;
 }
 
-.address a {
+.map-preview iframe {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
   color: #fff;
   font-weight: 600;
+  font-size: 0.9rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.map-link:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ---------- Mobile-first refinements ---------- */
